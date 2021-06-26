@@ -23,8 +23,9 @@ function HomePage() {
         dispatch(userActions.delete(id));
     }
 
-    function handleUpdateUser(id) {
-        dispatch(userActions.update(id));
+    function handleUpdateUser() {
+        // dispatch(userActions.update(id));
+        window.location.href = "/update";
     }
 
     return (
@@ -38,13 +39,13 @@ function HomePage() {
                 <ul>
                     {users.items.map((user, index) =>
                         <li key={user.id}>
-                            {user.firstName + ' ' + user.lastName}
+                            {user.firstName + ' ' + user.lastName + ' ' +  user.image}
                             {
                                 user.deleting ? <em> - Deleting...</em>
                                 : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
                                 : <span> - <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a></span>
                             }
-                             <span> - <a onClick={() => handleUpdateUser(user.id)} className="text-primary">Edit</a></span>
+                             <span> - <a onClick={() => handleUpdateUser()} className="text-primary">Edit</a></span>
                             {/* { <span> - <Link to="/update">Update</Link></span> } */}
                         </li>
                     )}

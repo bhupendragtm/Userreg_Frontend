@@ -70,7 +70,7 @@ function update(id) {
             .then(
                 id => { 
                     dispatch(success());
-                    history.push('/login');
+                    history.push('/');
                     dispatch(alertActions.success('Updated Successfully!'));
                 },
                 error => {
